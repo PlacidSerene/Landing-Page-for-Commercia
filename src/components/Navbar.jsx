@@ -8,6 +8,7 @@ import iconClose from "../../images/icon-close.svg";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = React.useState(false);
+  const [showCart, setShowCart] = React.useState(false);
   return (
     <nav>
       <div className="container mx-auto flex items-center justify-between py-6 px-6 font-default">
@@ -29,8 +30,14 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-5">
-          <div className="relative">
-            <img src={iconCart} alt="cart" className="h-6 w-6" />
+          <div
+            className="relative"
+            onClick={() => {
+              console.log("clicked");
+              setShowCart(!showCart);
+            }}
+          >
+            <img src={iconCart} alt="cart" className="h-6 w-6 cursor-pointer" />
             {/* Cart */}
           </div>
 
@@ -65,8 +72,22 @@ const Navbar = () => {
         onClick={() => setOpenMenu(false)}
       ></div>
       {/* Cart */}
-      <div className="absolute top-[15%] left-[50%] -translate-x-[50%] -translate-y-[50%] z-10 w-[90%] rounded-lg bg-white shadow-2xl p-5">
-        <h2 className="font-3xl font-bold">Cart Content</h2>
+      <div
+        className={`${
+          showCart ? "" : "hidden"
+        } absolute top-[26%] left-[50%] z-10 flex h-[280px] w-[95%] -translate-x-[50%] -translate-y-[50%] flex-col rounded-lg bg-white shadow-2xl`}
+      >
+        <div className="flex justify-between border-b-2 p-5">
+          <h2 className="text-lg font-bold">Cart</h2>
+          <h2 className="text-lg font-bold">X</h2>
+        </div>
+        <div className="flex h-full items-center justify-center">
+          <div>
+            <h2 className="text-lg font-bold text-gray-500">
+              Your cart is empty.
+            </h2>
+          </div>
+        </div>
       </div>
     </nav>
   );
