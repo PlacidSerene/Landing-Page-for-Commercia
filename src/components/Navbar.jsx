@@ -8,7 +8,8 @@ import iconClose from "../images/icon-close.svg";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = React.useState(false);
-  const { numberOfItems } = React.useContext(GlobalContext);
+  const { numberOfItems, setShowCart, showCart } =
+    React.useContext(GlobalContext);
   return (
     <nav>
       <div className="container mx-auto flex items-center justify-between py-6 px-6 font-default">
