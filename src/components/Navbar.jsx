@@ -1,14 +1,14 @@
 import React from "react";
-import Cart from "./Cart";
-import logo from "../../images/logo.svg";
-import iconMenu from "../../images/icon-menu.svg";
-import iconCart from "../../images/icon-cart.svg";
-import avatar from "../../images/image-avatar.png";
-import iconClose from "../../images/icon-close.svg";
+import { GlobalContext } from "../context/GlobalContext";
+import logo from "../images/logo.svg";
+import iconMenu from "../images/icon-menu.svg";
+import iconCart from "../images/icon-cart.svg";
+import avatar from "../images/image-avatar.png";
+import iconClose from "../images/icon-close.svg";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = React.useState(false);
-  const [showCart, setShowCart] = React.useState(false);
+  const { numberOfItems } = React.useContext(GlobalContext);
   return (
     <nav>
       <div className="container mx-auto flex items-center justify-between py-6 px-6 font-default">
@@ -33,11 +33,23 @@ const Navbar = () => {
           <div
             className="relative"
             onClick={() => {
-              console.log("clicked");
               setShowCart(!showCart);
             }}
           >
-            <img src={iconCart} alt="cart" className="h-6 w-6 cursor-pointer" />
+            {/* Cart and number of items */}
+            <div className="relative">
+              <img
+                src={iconCart}
+                alt="cart"
+                className="h-6 w-6 cursor-pointer"
+              />
+              {numberOfItems !== 0 && (
+                <div className="absolute -right-3 -top-2.5 rounded-xl bg-orange px-2 text-sm font-bold text-white">
+                  {numberOfItems}
+                </div>
+              )}
+            </div>
+
             {/* Cart */}
           </div>
 
@@ -71,24 +83,6 @@ const Navbar = () => {
         }`}
         onClick={() => setOpenMenu(false)}
       ></div>
-      {/* Cart */}
-      <div
-        className={`${
-          showCart ? "" : "hidden"
-        } absolute top-[26%] left-[50%] z-10 flex h-[280px] w-[95%] -translate-x-[50%] -translate-y-[50%] flex-col rounded-lg bg-white shadow-2xl`}
-      >
-        <div className="flex justify-between border-b-2 p-5">
-          <h2 className="text-lg font-bold">Cart</h2>
-          <h2 className="text-lg font-bold">X</h2>
-        </div>
-        <div className="flex h-full items-center justify-center">
-          <div>
-            <h2 className="text-lg font-bold text-gray-500">
-              Your cart is empty.
-            </h2>
-          </div>
-        </div>
-      </div>
     </nav>
   );
 };

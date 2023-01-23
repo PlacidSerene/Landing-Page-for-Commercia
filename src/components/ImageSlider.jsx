@@ -1,14 +1,14 @@
 import React from "react";
-import imageProduct1 from "../../images/image-product-1.jpg";
-import imageProduct1Thumbnail from "../../images/image-product-1-thumbnail.jpg";
-import imageProduct2 from "../../images/image-product-2.jpg";
-import imageProduct2Thumbnail from "../../images/image-product-2-thumbnail.jpg";
-import imageProduct3 from "../../images/image-product-3.jpg";
-import imageProduct3Thumbnail from "../../images/image-product-3-thumbnail.jpg";
-import imageProduct4 from "../../images/image-product-4.jpg";
-import imageProduct4Thumbnail from "../../images/image-product-4-thumbnail.jpg";
-import iconPrevious from "../../images/icon-previous.svg";
-import iconNext from "../../images/icon-next.svg";
+import imageProduct1 from "../images/image-product-1.jpg";
+import imageProduct1Thumbnail from "../images/image-product-1-thumbnail.jpg";
+import imageProduct2 from "../images/image-product-2.jpg";
+import imageProduct2Thumbnail from "../images/image-product-2-thumbnail.jpg";
+import imageProduct3 from "../images/image-product-3.jpg";
+import imageProduct3Thumbnail from "../images/image-product-3-thumbnail.jpg";
+import imageProduct4 from "../images/image-product-4.jpg";
+import imageProduct4Thumbnail from "../images/image-product-4-thumbnail.jpg";
+import iconPrevious from "../images/icon-previous.svg";
+import iconNext from "../images/icon-next.svg";
 const images = [
   {
     id: 1,
