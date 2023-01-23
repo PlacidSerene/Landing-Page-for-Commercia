@@ -38,7 +38,11 @@ const Counter = () => {
         </div>
       </div>
       {/* Add to Cart Button */}
-      <button className="rounded-lg bg-orange" onClick={addToCart}>
+      <button
+        className={`rounded-lg ${count === 0 ? "bg-gray-500" : "bg-orange"}`}
+        onClick={addToCart}
+        disabled={count === 0}
+      >
         <div className="flex items-center justify-center gap-4 py-4">
           <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
