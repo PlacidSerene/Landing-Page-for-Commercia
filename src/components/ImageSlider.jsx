@@ -37,10 +37,10 @@ const ImageSlider = () => {
     }
   };
   return (
-    <section className="group grid max-w-[500px] grid-cols-4 grid-rows-5 items-center gap-4 overflow-hidden md:w-1/2 md:rounded-lg container mx-auto">
+    <section className="group container mx-auto grid max-w-[500px] grid-cols-4 grid-rows-5 items-center gap-4 overflow-hidden md:w-1/2 md:rounded-lg">
       {/* Images */}
       <div
-        className="relative col-span-4 row-span-5 aspect-square h-full w-full bg-center bg-cover duration-500 md:row-span-4 md:rounded-lg"
+        className="relative col-span-4 row-span-5 aspect-square h-full w-full bg-cover bg-center duration-500 md:row-span-4 md:rounded-lg"
         style={{ backgroundImage: `url(${images[currImage].img})` }}
       >
         <div
@@ -61,12 +61,19 @@ const ImageSlider = () => {
       {/* Small Image Thumbnail */}
       <div className="col-span-4 row-span-1 hidden grid-cols-4 items-center gap-4 md:grid">
         {images.map((img) => (
-          <div className="aspect-square overflow-hidden rounded-lg">
+          <div
+            className={`aspect-square cursor-pointer overflow-hidden rounded-lg ${
+              img.id === currImage + 1
+                ? "border-[2px] border-amber-600 opacity-50"
+                : ""
+            }`}
+            onClick={() => setCurrImage(img.id - 1)}
+          >
             <img
               src={img.thumbnail}
               alt=""
               key={img.id}
-              className="h-full w-full object-fill "
+              className="h-full w-full object-fill"
             />
           </div>
         ))}
