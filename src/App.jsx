@@ -19,7 +19,7 @@ export default function App() {
           <ImageSlider />
           <PriceSection />
         </div>
-        <Cart />
+    
       </main>
     </GlobalContext.Provider>
   );

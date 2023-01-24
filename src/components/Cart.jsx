@@ -9,8 +9,8 @@ const Cart = () => {
   return (
     <div
       className={`${
-        showCart ? "" : "hidden"
-      } absolute top-[230px] left-[50%] z-10 flex h-[280px] w-[95%] -translate-x-[50%] -translate-y-[50%] flex-col rounded-lg bg-white shadow-2xl`}
+        !showCart && "hidden"
+      } fixed md:absolute top-[250px] left-[50%] md:top-[180px] md:-left-[150px] z-10 flex h-[280px] sm:w-[75%] w-[95%] -translate-x-[50%] -translate-y-[50%] flex-col rounded-lg bg-white shadow-2xl md:w-[350px]`}
     >
       <div className="flex justify-between border-b-2 p-5">
         <h2 className="text-lg font-bold">Cart</h2>

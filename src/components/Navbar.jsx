@@ -5,6 +5,7 @@ import iconMenu from "../images/icon-menu.svg";
 import iconCart from "../images/icon-cart.svg";
 import avatar from "../images/image-avatar.png";
 import iconClose from "../images/icon-close.svg";
+import Cart from "./Cart";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = React.useState(false);
@@ -49,6 +50,7 @@ const Navbar = () => {
                   {numberOfItems}
                 </div>
               )}
+              <Cart />
             </div>
 
             {/* Cart */}
@@ -84,6 +86,7 @@ const Navbar = () => {
         }`}
         onClick={() => setOpenMenu(false)}
       ></div>
+      
     </nav>
   );
 };
