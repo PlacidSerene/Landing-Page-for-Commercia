@@ -37,24 +37,39 @@ const ImageSlider = () => {
     }
   };
   return (
-    <section className="group relative h-80 w-full bg-red-200">
+    <section className="group grid max-w-[500px] grid-cols-4 grid-rows-5 items-center gap-4 overflow-hidden md:w-1/2 md:rounded-lg container mx-auto">
       {/* Images */}
       <div
-        className="h-full w-full bg-cover bg-center duration-500"
+        className="relative col-span-4 row-span-5 aspect-square h-full w-full bg-center bg-cover duration-500 md:row-span-4 md:rounded-lg"
         style={{ backgroundImage: `url(${images[currImage].img})` }}
-      ></div>
-      {/* Left Arrow */}
-      <div
-        className="absolute top-[50%] left-5 hidden translate-y-[-50%] cursor-pointer rounded-full border bg-white p-2 px-3 group-hover:block"
-        onClick={handleImageGoBack}
       >
-        <img src={iconPrevious} alt="" />
+        <div
+          className="absolute top-[50%] left-5 hidden -translate-y-[50%] cursor-pointer rounded-full border bg-white p-2 px-3 group-hover:block"
+          onClick={handleImageGoBack}
+        >
+          <img src={iconPrevious} alt="" />
+        </div>
+        <div
+          className="absolute top-[50%] right-5 hidden -translate-y-[50%] cursor-pointer rounded-full border bg-white p-2 px-3 group-hover:block"
+          onClick={handleImageForward}
+        >
+          <img src={iconNext} alt="" />
+        </div>
       </div>
-      <div
-        className="absolute top-[50%] right-5 hidden translate-y-[-50%] cursor-pointer rounded-full border bg-white p-2 px-3 group-hover:block"
-        onClick={handleImageForward}
-      >
-        <img src={iconNext} alt="" />
+      {/* Left Arrow */}
+
+      {/* Small Image Thumbnail */}
+      <div className="col-span-4 row-span-1 hidden grid-cols-4 items-center gap-4 md:grid">
+        {images.map((img) => (
+          <div className="aspect-square overflow-hidden rounded-lg">
+            <img
+              src={img.thumbnail}
+              alt=""
+              key={img.id}
+              className="h-full w-full object-fill "
+            />
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ const Cart = () => {
     <div
       className={`${
         showCart ? "" : "hidden"
-      } absolute top-[26%] left-[50%] z-10 flex h-[280px] w-[95%] -translate-x-[50%] -translate-y-[50%] flex-col rounded-lg bg-white shadow-2xl`}
+      } absolute top-[230px] left-[50%] z-10 flex h-[280px] w-[95%] -translate-x-[50%] -translate-y-[50%] flex-col rounded-lg bg-white shadow-2xl`}
     >
       <div className="flex justify-between border-b-2 p-5">
         <h2 className="text-lg font-bold">Cart</h2>
@@ -26,7 +26,7 @@ const Cart = () => {
       <div
         className={`flex flex-col ${
           numberOfItems === 0 && "h-full items-center"
-        } justify-center p-5 gap-5`}
+        } justify-center gap-5 p-5`}
       >
         <>
           {numberOfItems === 0 ? (
@@ -57,7 +57,7 @@ const Cart = () => {
           )}
         </>
         {numberOfItems !== 0 && (
-          <button className="text-md flex-grow-1 rounded-lg bg-orange p-5 text-white text-lg">
+          <button className="text-md flex-grow-1 rounded-lg bg-orange p-5 text-lg font-bold text-white">
             Checkout
           </button>
         )}

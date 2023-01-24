@@ -12,7 +12,7 @@ const Navbar = () => {
     React.useContext(GlobalContext);
   return (
     <nav>
-      <div className="container mx-auto flex items-center justify-between py-6 px-6 font-default">
+      <div className="container mx-auto flex items-center justify-between p-6 md:px-0 py-6 font-default md:border-b md:border-gray-300 pb-10 ">
         <div className="flex gap-3 lg:gap-10">
           {/* Hamburger menu */}
           <div

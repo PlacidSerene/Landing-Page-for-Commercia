@@ -11,10 +11,16 @@ export default function App() {
     <GlobalContext.Provider
       value={{ numberOfItems, setNumberOfItems, showCart, setShowCart }}
     >
-      <Navbar />
-      <ImageSlider />
-      <PriceSection />
-      <Cart />
+      <main>
+        {/* Navbar */}
+        <Navbar />
+        {/* Product Hero */}
+        <div className="flex flex-col md:flex-row container mx-auto md:p-12 md:gap-10">
+          <ImageSlider />
+          <PriceSection />
+        </div>
+        <Cart />
+      </main>
     </GlobalContext.Provider>
   );
 }
