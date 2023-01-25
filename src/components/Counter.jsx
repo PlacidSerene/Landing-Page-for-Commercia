@@ -19,8 +19,8 @@ const Counter = () => {
     setCount(0);
   };
   return (
-    <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
-      <div className="relative w-full rounded-lg border bg-lightGrayishBlue py-4 text-center md:w-2/5">
+    <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">
+      <div className="relative w-full rounded-lg border bg-lightGrayishBlue py-4 text-center lg:w-2/5">
         <p className="font-bold">{count}</p>
         {/* Icon Minus */}
         <div
@@ -38,7 +38,7 @@ const Counter = () => {
         </div>
       </div>
       {/* Add to Cart Button */}
-      <div className="w-full md:w-3/5">
+      <div className="w-full lg:w-3/5">
         <button
           className={`rounded-lg ${
             count === 0 ? "bg-gray-500" : "bg-orange"

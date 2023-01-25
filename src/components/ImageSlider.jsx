@@ -9,6 +9,7 @@ import imageProduct4 from "../images/image-product-4.jpg";
 import imageProduct4Thumbnail from "../images/image-product-4-thumbnail.jpg";
 import iconPrevious from "../images/icon-previous.svg";
 import iconNext from "../images/icon-next.svg";
+import { GlobalContext } from "../context/GlobalContext";
 const images = [
   {
     id: 1,
@@ -20,7 +21,8 @@ const images = [
   { id: 4, img: imageProduct4, thumbnail: imageProduct4Thumbnail },
 ];
 
-const ImageSlider = () => {
+const ImageSlider = ({ modal }) => {
+  const { setShowImageModal } = React.useContext(GlobalContext);
   const [currImage, setCurrImage] = React.useState(0);
   const handleImageGoBack = () => {
     if (currImage > 0) {
@@ -37,21 +39,32 @@ const ImageSlider = () => {
     }
   };
   return (
-    <section className="group container mx-auto grid max-w-[500px] grid-cols-4 grid-rows-5 items-center gap-4 overflow-hidden md:w-1/2 md:rounded-lg">
+    <section
+      className={`group container mx-auto grid grid-cols-4 grid-rows-5 items-center gap-4 overflow-hidden ${
+        modal ? "max-w-[500px]" : "md:w-1/2"
+      } md:rounded-lg`}
+    >
       {/* Images */}
       <div
-        className="relative col-span-4 row-span-5 aspect-square h-full w-full bg-cover bg-center duration-500 md:row-span-4 md:rounded-lg"
+        className="relative col-span-4 row-span-5 aspect-square h-full w-full cursor-pointer bg-cover bg-center duration-500 md:row-span-4 md:rounded-lg"
         style={{ backgroundImage: `url(${images[currImage].img})` }}
+        onClick={() => setShowImageModal(true)}
       >
         <div
           className="absolute top-[50%] left-5 hidden -translate-y-[50%] cursor-pointer rounded-full border bg-white p-2 px-3 group-hover:block"
-          onClick={handleImageGoBack}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleImageGoBack();
+          }}
         >
           <img src={iconPrevious} alt="" />
         </div>
         <div
           className="absolute top-[50%] right-5 hidden -translate-y-[50%] cursor-pointer rounded-full border bg-white p-2 px-3 group-hover:block"
-          onClick={handleImageForward}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleImageForward();
+          }}
         >
           <img src={iconNext} alt="" />
         </div>
